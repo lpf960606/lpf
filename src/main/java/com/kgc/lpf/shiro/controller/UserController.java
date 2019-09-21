@@ -65,7 +65,7 @@ public class UserController {
                 m.setViewName("register");
             }
         }
-        return m;
+        return m;   
     }
 
     @RequestMapping("test")
