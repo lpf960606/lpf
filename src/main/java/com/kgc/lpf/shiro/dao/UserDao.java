@@ -17,6 +17,8 @@ public interface UserDao {
     public boolean adduser(@Param("uname") String uname, @Param("upwd") String upwd);
 
     public boolean addur(@Param("uname") String uname, @Param("upwd") String upwd);
+    
+     public boolean addurS(@Param("uname") String uname, @Param("upwd") String upwd);
 
 
 }
