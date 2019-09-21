@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+这是everyone都能看到的。
+
+<a href="/tologin">登录</a>
+<a href="/toin">注册</a>
+<div shiro:hasPermission="一级">拥有VIP1权限
+    <div> vip1 才能看到我</div>
+</div>
+
+<div shiro:guest>访客才能看到的信息
+    <div>
+        你是个访客
+    </div>
+
+</div>
+<div>
+    <shiro:principal property="uname"/>
+</div>
+<div shiro:lacksPermission="一级">没有VIP1权限</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kgc.lpf.shiro.dao.UserDao">
+
+    <resultMap id="selectuser" type="User">
+        <id column="uid" property="uid"></id>
+        <result column="uname" property="uname"></result>
+        <result column="upwd" property="upwd"></result>
+        <collection property="role" javaType="java.util.List" ofType="Role">
+            <id column="rid" property="rid"></id>
+            <result column="rname" property="rname"></result>
+            <collection property="perssion" javaType="java.util.List" ofType="Perssion">
+                <id column="pid" property="pid"></id>
+                <result column="pname" property="pname"></result>
+            </collection>
+        </collection>
+
+    </resultMap>
+    <select id="selectByName" resultMap="selectuser">
+        SELECT
+	*
+FROM
+	tb_user u,
+	tb_u_r,
+	tb_role r,
+	tb_r_p,
+	tb_perssion p
+WHERE
+	u.uid = tb_u_r.uid
+AND tb_u_r.rid = r.rid
+AND r.rid = tb_r_p.rid
+AND tb_r_p.rid = p.pid
+AND u.uname=#{uname}
+    </select>
+
+    <insert id="adduser">
+        insert into tb_user values (uid,#{uname},#{upwd})
+    </insert>
+
+    <insert id="addur" >
+        insert into tb_u_r values ((select uid from tb_user where uname=#{uname} and upwd=#{upwd}),1)
+    </insert>
+
+</mapper>

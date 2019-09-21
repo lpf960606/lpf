@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="layui/css/layui.css"/>
+    <script type="text/javascript" src="layui/layui.js"></script>
+</head>
+
+<body>
+<form action="login" method="post">
+    <input type="text" name="uname" placeholder="用户名">
+    <input type="password" name="upwd" placeholder="密码">
+    <button type="submit">登录</button>
+</form>
+<table class="layui-hide" id="test"></table>
+</body>
+<script type="text/javascript">
+    layui.use('table', function () {
+        var table = layui.table;
+        table.render({
+            elem: '#test'
+            , url: 'test'
+            , cols:
+                [ [{
+                field: 'pid', width: 80, title: '权限ID', sort: true
+            }, {
+                    field: 'pname', width: 80, title: '权限名'
+                }]]
+            , skin: 'row' //表格风格
+            , even: true
+            , page: true //是否显示分页
+
+        });
+    });
+</script>
+</html>
