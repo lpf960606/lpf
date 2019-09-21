@@ -13,7 +13,7 @@ public class UserServiceimpl implements UserService {
     @Autowired
     UserDao ud;
 
-    @Override
+    @Override    
     public User selectByName(String uname) {
         return ud.selectByName(uname);
     }
