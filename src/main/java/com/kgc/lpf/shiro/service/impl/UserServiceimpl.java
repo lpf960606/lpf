@@ -22,7 +22,7 @@ public class UserServiceimpl implements UserService {
     public boolean addinfo(String uname, String upwd) {
         boolean flag = false;
         if (ud.adduser(uname, upwd) == true) {
-            if (ud.addur(uname, upwd)==true) {
+            if (ud.addur(uname, upwd) == true) {
                 flag = true;
             } else {
                 flag = false;
@@ -30,6 +30,7 @@ public class UserServiceimpl implements UserService {
         } else {
             flag = true;
             System.out.println("ddd");
+            System.out.println("aaa");
         }
         return flag;
     }
