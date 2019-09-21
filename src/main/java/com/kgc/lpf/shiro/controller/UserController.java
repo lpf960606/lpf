@@ -63,9 +63,10 @@ public class UserController {
                 m.setViewName("login");
             } else {
                 m.setViewName("register");
+                System.out.println("----------");
             }
         }
-        return m;   
+        return m;
     }
 
     @RequestMapping("test")
